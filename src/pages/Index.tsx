@@ -1,13 +1,47 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from 'react';
+import Loader from '@/components/Loader';
+import DockNavigation from '@/components/DockNavigation';
+import HeroSection from '@/components/HeroSection';
+import AboutSection from '@/components/AboutSection';
+import EducationSection from '@/components/EducationSection';
+import SkillsSection from '@/components/SkillsSection';
+import ProjectsSection from '@/components/ProjectsSection';
+import HobbiesSection from '@/components/HobbiesSection';
+import ContactSection from '@/components/ContactSection';
+import Footer from '@/components/Footer';
 
 const Index = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <>
+      {/* Preloader */}
+      <Loader onComplete={handleLoadingComplete} />
+      
+      {/* Main Content */}
+      <div className={`transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+        {/* Dock Navigation */}
+        <DockNavigation />
+        
+        {/* Main Sections */}
+        <main>
+          <HeroSection />
+          <AboutSection />
+          <EducationSection />
+          <SkillsSection />
+          <ProjectsSection />
+          <HobbiesSection />
+          <ContactSection />
+        </main>
+        
+        {/* Footer */}
+        <Footer />
       </div>
-    </div>
+    </>
   );
 };
 
