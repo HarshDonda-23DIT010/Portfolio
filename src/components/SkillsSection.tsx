@@ -44,15 +44,15 @@ const SkillsSection = () => {
           </div>
 
           {/* Skills Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto" data-scroll-animate>
             {skillCategories.map((category, index) => {
               const Icon = category.icon;
               return (
-                <div key={index} className="glass-card rounded-2xl p-8 hover-card">
+                <div key={index} className="glass-card rounded-2xl p-8 hover-card magnetic reveal-up" style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="space-y-6">
                     {/* Category Header */}
                     <div className="flex items-center gap-4">
-                      <div className={`w-12 h-12 rounded-xl bg-${category.color}/20 flex items-center justify-center`}>
+                      <div className={`w-12 h-12 rounded-xl bg-${category.color}/20 flex items-center justify-center hover:scale-110 hover:rotate-6 transition-all duration-300 glow-pulse`}>
                         <Icon size={24} className={`text-${category.color}`} />
                       </div>
                       <h3 className="text-xl font-bold">{category.title}</h3>

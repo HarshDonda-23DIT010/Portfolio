@@ -39,27 +39,27 @@ const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-6 text-center z-10 ml-20">
-        <div className="space-y-8 float-animation">
+        <div className="space-y-8 float-animation" data-scroll-animate>
           {/* Name */}
-          <h1 className="text-6xl md:text-8xl font-bold">
-            <span className="text-glow bg-gradient-neon bg-clip-text text-transparent">
+          <h1 className="text-6xl md:text-8xl font-bold reveal-up">
+            <span className="text-glow bg-gradient-neon bg-clip-text text-transparent glow-pulse">
               Harsh Donda
             </span>
           </h1>
 
           {/* Typing effect for subtitle */}
-          <div className="h-16 flex items-center justify-center">
+          <div className="h-16 flex items-center justify-center reveal-up" style={{ animationDelay: '0.2s' }}>
             <p className="text-xl md:text-2xl text-muted-foreground">
               {text}
-              <span className="animate-pulse">|</span>
+              <span className="animate-pulse text-neon-cyan">|</span>
             </p>
           </div>
 
           {/* CTA Button */}
-          <div className="pt-8">
+          <div className="pt-8 reveal-up" style={{ animationDelay: '0.4s' }}>
             <Button 
               size="lg" 
-              className="neon-glow bg-gradient-neon hover:shadow-glow text-primary-foreground font-semibold px-8 py-4 text-lg"
+              className="neon-glow bg-gradient-neon hover:shadow-glow text-primary-foreground font-semibold px-8 py-4 text-lg magnetic hover:scale-105"
             >
               <Download className="mr-2" size={20} />
               Download Resume

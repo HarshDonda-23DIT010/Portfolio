@@ -6,12 +6,12 @@ const AboutSection = () => {
       <div className="container mx-auto px-6 ml-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
-          <div className="space-y-8">
-            <div className="space-y-4">
+          <div className="space-y-8" data-scroll-animate>
+            <div className="space-y-4 reveal-left">
               <h2 className="text-4xl md:text-5xl font-bold">
                 About <span className="text-glow bg-gradient-neon bg-clip-text text-transparent">Me</span>
               </h2>
-              <div className="w-20 h-1 bg-gradient-neon rounded-full"></div>
+              <div className="w-20 h-1 bg-gradient-neon rounded-full glow-pulse"></div>
             </div>
 
             <div className="space-y-6 text-lg text-muted-foreground">
@@ -53,21 +53,21 @@ const AboutSection = () => {
           </div>
 
           {/* Image/Visual Content */}
-          <div className="relative">
-            <div className="glass-card rounded-3xl p-8 hover-card">
+          <div className="relative" data-scroll-animate>
+            <div className="glass-card rounded-3xl p-8 hover-card magnetic tilt-effect reveal-right">
               {/* Placeholder for profile photo */}
-              <div className="w-full h-96 bg-gradient-card rounded-2xl flex items-center justify-center border border-border/50">
+              <div className="w-full h-96 bg-gradient-card rounded-2xl flex items-center justify-center border border-border/50 hover:border-neon-cyan/50 transition-all duration-300">
                 <div className="text-center space-y-4">
-                  <User size={64} className="text-neon-cyan mx-auto" />
+                  <User size={64} className="text-neon-cyan mx-auto animate-pulse" />
                   <p className="text-muted-foreground">Professional Photo</p>
                 </div>
               </div>
               
               {/* Floating icons */}
-              <div className="absolute -top-4 -right-4 w-12 h-12 bg-neon-cyan/20 rounded-full flex items-center justify-center">
+              <div className="absolute -top-4 -right-4 w-12 h-12 bg-neon-cyan/20 rounded-full flex items-center justify-center animate-float">
                 <Code size={20} className="text-neon-cyan" />
               </div>
-              <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-neon-purple/20 rounded-full flex items-center justify-center">
+              <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-neon-purple/20 rounded-full flex items-center justify-center animate-float" style={{ animationDelay: '1s' }}>
                 <Brain size={20} className="text-neon-purple" />
               </div>
             </div>

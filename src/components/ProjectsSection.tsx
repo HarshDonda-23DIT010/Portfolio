@@ -75,16 +75,16 @@ const ProjectsSection = () => {
           </div>
 
           {/* Projects Grid */}
-          <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto" data-scroll-animate>
             {projects.map((project, index) => {
               const Icon = project.icon;
               return (
-                <div key={index} className="glass-card rounded-2xl p-8 hover-card group">
+                <div key={index} className="glass-card rounded-2xl p-8 hover-card group magnetic tilt-effect reveal-up" style={{ animationDelay: `${index * 0.1}s` }}>
                   <div className="space-y-6">
                     {/* Project Header */}
                     <div className="flex items-start justify-between">
                       <div className="flex items-center gap-4">
-                        <div className={`w-12 h-12 rounded-xl bg-${project.color}/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                        <div className={`w-12 h-12 rounded-xl bg-${project.color}/20 flex items-center justify-center group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 glow-pulse`}>
                           <Icon size={24} className={`text-${project.color}`} />
                         </div>
                         <div>
@@ -92,18 +92,18 @@ const ProjectsSection = () => {
                           <p className={`text-sm text-${project.color} font-medium`}>{project.subtitle}</p>
                         </div>
                       </div>
-                      <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <Button size="sm" variant="outline" className="w-8 h-8 p-0">
+                      <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-4 group-hover:translate-x-0">
+                        <Button size="sm" variant="outline" className="w-8 h-8 p-0 magnetic hover:scale-110 hover:bg-neon-cyan/20">
                           <Github size={16} />
                         </Button>
-                        <Button size="sm" variant="outline" className="w-8 h-8 p-0">
+                        <Button size="sm" variant="outline" className="w-8 h-8 p-0 magnetic hover:scale-110 hover:bg-neon-purple/20">
                           <ExternalLink size={16} />
                         </Button>
                       </div>
                     </div>
 
                     {/* Description */}
-                    <p className="text-muted-foreground leading-relaxed">
+                    <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-300">
                       {project.description}
                     </p>
 

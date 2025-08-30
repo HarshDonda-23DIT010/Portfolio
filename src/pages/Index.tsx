@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Loader from '@/components/Loader';
 import DockNavigation from '@/components/DockNavigation';
+import CursorEffect from '@/components/CursorEffect';
+import ScrollAnimations from '@/components/ScrollAnimations';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import EducationSection from '@/components/EducationSection';
@@ -19,6 +21,9 @@ const Index = () => {
 
   return (
     <>
+      {/* Custom Cursor */}
+      <CursorEffect />
+      
       {/* Preloader */}
       <Loader onComplete={handleLoadingComplete} />
       
@@ -27,19 +32,22 @@ const Index = () => {
         {/* Dock Navigation */}
         <DockNavigation />
         
-        {/* Main Sections */}
-        <main>
-          <HeroSection />
-          <AboutSection />
-          <EducationSection />
-          <SkillsSection />
-          <ProjectsSection />
-          <HobbiesSection />
-          <ContactSection />
-        </main>
-        
-        {/* Footer */}
-        <Footer />
+        {/* Scroll Animations Wrapper */}
+        <ScrollAnimations>
+          {/* Main Sections */}
+          <main>
+            <HeroSection />
+            <AboutSection />
+            <EducationSection />
+            <SkillsSection />
+            <ProjectsSection />
+            <HobbiesSection />
+            <ContactSection />
+          </main>
+          
+          {/* Footer */}
+          <Footer />
+        </ScrollAnimations>
       </div>
     </>
   );
