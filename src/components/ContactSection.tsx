@@ -3,6 +3,7 @@ import { Mail, Github, Linkedin, Send, MapPin, Code } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -25,26 +26,26 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="min-h-screen flex items-center py-20">
-      <div className="container mx-auto px-6 ml-20">
-        <div className="space-y-12">
+    <section id="contact" className="min-h-screen flex items-center py-20 pb-32 lg:pb-20">
+      <div className="container mx-auto px-4 md:px-6 md:ml-20">
+        <div className="space-y-8 md:space-y-12">
           {/* Section Header */}
           <div className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
               Get In <span className="text-glow bg-gradient-neon bg-clip-text text-transparent">Touch</span>
             </h2>
             <div className="w-20 h-1 bg-gradient-neon rounded-full mx-auto"></div>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
               Let's connect and explore opportunities to collaborate on innovative projects
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 max-w-6xl mx-auto">
             {/* Contact Information */}
-            <div className="space-y-8">
-              <div className="space-y-6">
-                <h3 className="text-2xl font-bold">Let's Start a Conversation</h3>
-                <p className="text-muted-foreground leading-relaxed">
+            <div className="space-y-6 md:space-y-8">
+              <div className="space-y-4 md:space-y-6">
+                <h3 className="text-xl md:text-2xl font-bold">Let's Start a Conversation</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                   I'm always excited to discuss new projects, innovative ideas, or opportunities to be part of 
                   your vision. Whether you have a project in mind or just want to connect, I'd love to hear from you.
                 </p>
@@ -52,43 +53,43 @@ const ContactSection = () => {
 
               {/* Contact Methods */}
               <div className="space-y-4">
-                <div className="flex items-center gap-4 p-4 glass-card rounded-xl hover-card">
-                  <div className="w-12 h-12 rounded-xl bg-neon-cyan/20 flex items-center justify-center">
+                <div className="flex items-center gap-4 p-4 glass-card rounded-xl hover-card group cursor-pointer" onClick={() => window.open('mailto:dondaharsh04@gmail.com', '_blank')}>
+                  <div className="w-12 h-12 rounded-xl bg-neon-cyan/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Mail size={20} className="text-neon-cyan" />
                   </div>
                   <div>
                     <h4 className="font-semibold">Email</h4>
-                    <p className="text-muted-foreground">dondaharsh04@gmail.com</p>
+                    <p className="text-muted-foreground">Drop me a line for project discussions or collaborations</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 p-4 glass-card rounded-xl hover-card">
-                  <div className="w-12 h-12 rounded-xl bg-neon-purple/20 flex items-center justify-center">
+                <div className="flex items-center gap-4 p-4 glass-card rounded-xl hover-card group cursor-pointer" onClick={() => window.open('https://github.com/HarshDonda-23DIT010', '_blank')}>
+                  <div className="w-12 h-12 rounded-xl bg-neon-purple/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Github size={20} className="text-neon-purple" />
                   </div>
                   <div>
                     <h4 className="font-semibold">GitHub</h4>
-                    <p className="text-muted-foreground">github.com/HarshDonda-23DIT010</p>
+                    <p className="text-muted-foreground">Explore my open-source projects and code repositories</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 p-4 glass-card rounded-xl hover-card group">
+                <div className="flex items-center gap-4 p-4 glass-card rounded-xl hover-card group cursor-pointer" onClick={() => window.open('https://linkedin.com/in/harsh-donda-b6a9612a7', '_blank')}>
                   <div className="w-12 h-12 rounded-xl bg-neon-green/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Linkedin size={20} className="text-neon-green" />
                   </div>
                   <div>
                     <h4 className="font-semibold">LinkedIn</h4>
-                    <p className="text-muted-foreground">Connect with me on LinkedIn</p>
+                    <p className="text-muted-foreground">Connect professionally and view my career journey</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 p-4 glass-card rounded-xl hover-card group">
+                <div className="flex items-center gap-4 p-4 glass-card rounded-xl hover-card group cursor-pointer" onClick={() => window.open('https://leetcode.com/u/dondaharsh04/', '_blank')}>
                   <div className="w-12 h-12 rounded-xl bg-yellow-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Code size={20} className="text-yellow-400" />
                   </div>
                   <div>
                     <h4 className="font-semibold">LeetCode</h4>
-                    <p className="text-muted-foreground">@HarshDonda_23</p>
+                    <p className="text-muted-foreground">Check out my algorithmic problem-solving skills and progress</p>
                   </div>
                 </div>
 
@@ -98,23 +99,79 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold">Location</h4>
-                    <p className="text-muted-foreground">Gujarat, India</p>
+                    <p className="text-muted-foreground">Based in Gujarat, India - Open to remote opportunities</p>
                   </div>
                 </div>
               </div>
 
               {/* Social Links */}
-              <div className="flex gap-4 pt-4">
-                <Button size="sm" variant="outline" className="w-10 h-10 p-0 neon-glow">
-                  <Mail size={16} />
-                </Button>
-                <Button size="sm" variant="outline" className="w-10 h-10 p-0 neon-glow">
-                  <Github size={16} />
-                </Button>
-                <Button size="sm" variant="outline" className="w-10 h-10 p-0 neon-glow">
-                  <Linkedin size={16} />
-                </Button>
-              </div>
+              <TooltipProvider>
+                <div className="flex flex-wrap gap-3 md:gap-4 pt-4 justify-center lg:justify-start">
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="w-10 h-10 md:w-12 md:h-12 p-0 neon-glow hover:scale-110 transition-transform"
+                        onClick={() => window.open('mailto:dondaharsh04@gmail.com', '_blank')}
+                      >
+                        <Mail size={16} />
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Email</p>
+                    </TooltipContent>
+                  </Tooltip>
+
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="w-10 h-10 md:w-12 md:h-12 p-0 neon-glow hover:scale-110 transition-transform"
+                        onClick={() => window.open('https://github.com/HarshDonda-23DIT010', '_blank')}
+                      >
+                        <Github size={16} />
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>GitHub</p>
+                    </TooltipContent>
+                  </Tooltip>
+
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="w-10 h-10 md:w-12 md:h-12 p-0 neon-glow hover:scale-110 transition-transform"
+                        onClick={() => window.open('https://linkedin.com/in/harsh-donda-b6a9612a7', '_blank')}
+                      >
+                        <Linkedin size={16} />
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>LinkedIn</p>
+                    </TooltipContent>
+                  </Tooltip>
+
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="w-10 h-10 md:w-12 md:h-12 p-0 neon-glow hover:scale-110 transition-transform"
+                        onClick={() => window.open('https://leetcode.com/u/dondaharsh04/', '_blank')}
+                      >
+                        <Code size={16} />
+                      </Button>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>LeetCode</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </div>
+              </TooltipProvider>
             </div>
 
             {/* Contact Form */}
@@ -178,26 +235,7 @@ const ContactSection = () => {
             </div>
           </div>
 
-          {/* Call to Action */}
-          <div className="text-center mt-16">
-            <div className="glass-card rounded-2xl p-8 max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold mb-4">Ready to Work Together?</h3>
-              <p className="text-muted-foreground mb-6">
-                I'm currently open to new opportunities and exciting projects. 
-                Let's create something amazing together!
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="neon-glow bg-gradient-neon hover:shadow-glow">
-                  <Mail className="mr-2" size={16} />
-                  Email Me
-                </Button>
-                <Button variant="outline" className="border-border hover:bg-secondary">
-                  <Github className="mr-2" size={16} />
-                  View My Work
-                </Button>
-              </div>
-            </div>
-          </div>
+       
         </div>
       </div>
     </section>

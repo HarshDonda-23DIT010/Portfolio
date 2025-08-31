@@ -3,16 +3,16 @@ import { GraduationCap, Calendar, MapPin } from 'lucide-react';
 const educationData = [
   {
     degree: 'B.Tech in Information Technology',
-    institution: 'Charusat University (DEPSTAR)',
-    period: '2023 – Present',
-    location: 'Charusat, Gujarat',
-    description: 'Currently in 2nd year, focusing on advanced programming, data structures, AI/ML fundamentals, and software engineering principles.',
+    institution: 'Charusat University of Science and Technology (DEPSTAR)',
+    period: '2022 – Present',
+    location: 'Charusat, India',
+    description: 'Currently in 3rd year, focusing on Competitive programming, data structures, AI/ML fundamentals, and software engineering principles.',
     status: 'current'
   },
   {
     degree: 'Higher Secondary (Science Stream)',
-    institution: 'High School',
-    period: '2021 – 2023',
+    institution: 'P P Savani Vidhya Bhavan',
+    period: '2020 – 2022',
     location: 'Gujarat, India',
     description: 'Completed with Science stream focusing on Mathematics, Physics, and Chemistry, laying the foundation for engineering studies.',
     status: 'completed'
@@ -21,16 +21,16 @@ const educationData = [
 
 const EducationSection = () => {
   return (
-    <section id="education" className="min-h-screen flex items-center py-20">
-      <div className="container mx-auto px-6 ml-20">
-        <div className="space-y-12">
+    <section id="education" className="min-h-screen flex items-center py-12 md:py-20">
+      <div className="container mx-auto px-4 md:px-6 lg:ml-20">
+        <div className="space-y-8 md:space-y-12">
           {/* Section Header */}
           <div className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
               My <span className="text-glow bg-gradient-neon bg-clip-text text-transparent">Education</span>
             </h2>
-            <div className="w-20 h-1 bg-gradient-neon rounded-full mx-auto"></div>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <div className="w-16 md:w-20 h-1 bg-gradient-neon rounded-full mx-auto"></div>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               Academic journey shaping my technical foundation and passion for innovation
             </p>
           </div>
@@ -38,47 +38,47 @@ const EducationSection = () => {
           {/* Education Timeline */}
           <div className="relative max-w-4xl mx-auto">
             {/* Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-neon-cyan via-neon-purple to-neon-green"></div>
+            <div className="absolute left-4 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-sky-400 via-blue-400 to-cyan-400"></div>
 
-            <div className="space-y-12">
+            <div className="space-y-8 md:space-y-12">
               {educationData.map((edu, index) => (
                 <div key={index} className="relative">
                   {/* Timeline dot */}
-                  <div className={`absolute left-6 w-4 h-4 rounded-full ${
-                    edu.status === 'current' ? 'bg-neon-cyan shadow-neon-cyan' : 'bg-neon-purple shadow-neon-purple'
+                  <div className={`absolute left-2 md:left-6 w-4 h-4 rounded-full ${
+                    edu.status === 'current' ? 'bg-sky-400 shadow-lg shadow-sky-400/50' : 'bg-blue-400 shadow-lg shadow-blue-400/50'
                   } border-4 border-background`}></div>
 
                   {/* Education card */}
-                  <div className="ml-20">
-                    <div className="glass-card rounded-2xl p-8 hover-card">
-                      <div className="space-y-4">
+                  <div className="ml-12 md:ml-20">
+                    <div className="glass-card rounded-2xl p-4 md:p-8 hover-card">
+                      <div className="space-y-3 md:space-y-4">
                         {/* Header */}
-                        <div className="flex items-start justify-between">
+                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
                           <div className="space-y-2">
-                            <h3 className="text-2xl font-bold text-foreground">{edu.degree}</h3>
-                            <p className="text-xl text-neon-cyan font-semibold">{edu.institution}</p>
+                            <h3 className="text-lg md:text-2xl font-bold text-foreground">{edu.degree}</h3>
+                            <p className="text-base md:text-xl text-sky-400 font-semibold">{edu.institution}</p>
                           </div>
                           {edu.status === 'current' && (
-                            <span className="px-3 py-1 bg-neon-cyan/20 text-neon-cyan text-sm font-medium rounded-full">
+                            <span className="px-3 py-1 bg-sky-400/20 text-sky-400 text-xs md:text-sm font-medium rounded-full border border-sky-400/30 w-fit">
                               Current
                             </span>
                           )}
                         </div>
 
                         {/* Details */}
-                        <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+                        <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-4 text-xs md:text-sm text-muted-foreground">
                           <div className="flex items-center gap-2">
-                            <Calendar size={16} className="text-neon-purple" />
+                            <Calendar size={14} className="text-blue-400 md:w-4 md:h-4" />
                             {edu.period}
                           </div>
                           <div className="flex items-center gap-2">
-                            <MapPin size={16} className="text-neon-green" />
+                            <MapPin size={14} className="text-cyan-400 md:w-4 md:h-4" />
                             {edu.location}
                           </div>
                         </div>
 
                         {/* Description */}
-                        <p className="text-muted-foreground leading-relaxed">
+                        <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                           {edu.description}
                         </p>
                       </div>
@@ -89,16 +89,6 @@ const EducationSection = () => {
             </div>
           </div>
 
-          {/* Achievement highlight */}
-          <div className="text-center mt-16">
-            <div className="glass-card rounded-2xl p-6 max-w-md mx-auto">
-              <GraduationCap size={48} className="text-neon-cyan mx-auto mb-4" />
-              <h3 className="text-xl font-bold mb-2">Academic Focus</h3>
-              <p className="text-muted-foreground">
-                Specialized in AI/ML, Web Development, and Data Science with hands-on project experience
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>

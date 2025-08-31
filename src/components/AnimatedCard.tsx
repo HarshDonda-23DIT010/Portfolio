@@ -33,8 +33,8 @@ const AnimatedCard = ({
       ? `scale(${hoverScale}) rotateY(${mousePosition.x * rotateIntensity}deg) rotateX(${-mousePosition.y * rotateIntensity}deg)`
       : 'scale(1) rotateY(0deg) rotateX(0deg)',
     boxShadow: isHovered
-      ? '0 25px 50px hsl(var(--primary) / 0.25)'
-      : '0 10px 25px hsl(var(--primary) / 0.1)',
+      ? '0 25px 50px rgba(56, 189, 248, 0.25)'
+      : '0 10px 25px rgba(56, 189, 248, 0.1)',
     config: { tension: 300, friction: 10 }
   });
 
@@ -57,7 +57,7 @@ const AnimatedCard = ({
         {/* Glow effect */}
         <animated.div
           style={glowAnimation}
-          className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-xl blur-xl -z-10"
+          className="absolute inset-0 bg-gradient-to-r from-sky-400/20 via-blue-400/20 to-cyan-400/20 rounded-xl blur-xl -z-10"
         />
         
         {/* Card content */}

@@ -8,7 +8,6 @@ import SkillsSection from '@/components/SkillsSection';
 import ProjectsSection from '@/components/ProjectsSection';
 
 import ContactSection from '@/components/ContactSection';
-import Footer from '@/components/Footer';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -38,8 +37,7 @@ const Index = () => {
           <ContactSection />
         </main>
         
-        {/* Footer */}
-        <Footer />
+    
       </div>
     </>
   );
