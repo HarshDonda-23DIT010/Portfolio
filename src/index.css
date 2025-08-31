@@ -132,14 +132,25 @@
 }
 
 @layer components {
-  /* Loader animations */
-  .loader-cube {
-    animation: rotateCube 2s infinite linear;
+  /* Smooth scrolling and transitions */
+  * {
+    transition: var(--transition-smooth);
   }
 
-  @keyframes rotateCube {
-    0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
-    100% { transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg); }
+  /* Enhanced smooth animations */
+  .smooth-appear {
+    animation: smoothAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  @keyframes smoothAppear {
+    0% { 
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+    }
+    100% { 
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
   }
 
   /* Neon glow effects */
