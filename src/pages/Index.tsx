@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import Loader from '@/components/Loader';
 import DockNavigation from '@/components/DockNavigation';
-import HeroSection from '@/components/HeroSection';
+import InteractiveHero from '@/components/InteractiveHero';
 import AboutSection from '@/components/AboutSection';
 import EducationSection from '@/components/EducationSection';
 import SkillsSection from '@/components/SkillsSection';
 import ProjectsSection from '@/components/ProjectsSection';
-import HobbiesSection from '@/components/HobbiesSection';
+
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
@@ -29,12 +29,12 @@ const Index = () => {
         
         {/* Main Sections */}
         <main>
-          <HeroSection />
+          <InteractiveHero />
           <AboutSection />
           <EducationSection />
           <SkillsSection />
           <ProjectsSection />
-          <HobbiesSection />
+          
           <ContactSection />
         </main>
         

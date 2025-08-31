@@ -132,12 +132,34 @@
 }
 
 @layer components {
-  /* Smooth scrolling and transitions */
+  /* Enhanced smooth animations and effects */
   * {
     transition: var(--transition-smooth);
   }
 
-  /* Enhanced smooth animations */
+  /* 3D Perspective */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-gpu {
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+
+  /* Gradient animations */
+  .animate-gradient-shift {
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Enhanced smooth appear */
   .smooth-appear {
     animation: smoothAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
@@ -151,6 +173,25 @@
       opacity: 1;
       transform: translateY(0) scale(1);
     }
+  }
+
+  /* Magnetic hover effect */
+  .magnetic-hover {
+    transition: var(--transition-smooth);
+  }
+
+  .magnetic-hover:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px hsl(var(--primary) / 0.2);
+  }
+
+  /* Tilt effect */
+  .tilt-card {
+    transition: transform 0.3s ease;
+  }
+
+  .tilt-card:hover {
+    transform: rotateX(5deg) rotateY(5deg) scale(1.05);
   }
 
   /* Neon glow effects */

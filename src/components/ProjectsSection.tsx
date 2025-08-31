@@ -1,5 +1,8 @@
-import { ExternalLink, Github, Award, Smartphone, Globe, GraduationCap, Brain, Users } from 'lucide-react';
+import { useState } from 'react';
+import { ExternalLink, Github, Award, Zap, Brain, Code2, Database, Smartphone } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import AnimatedCard from '@/components/AnimatedCard';
 
 const projects = [
   {
@@ -16,7 +19,7 @@ const projects = [
     subtitle: 'Role-based System',
     description: 'Comprehensive MERN stack platform for student sports registration, scheduling, and approvals.',
     technologies: ['React.js', 'Node.js', 'MongoDB', 'Express.js'],
-    icon: Users,
+    icon: Zap,
     color: 'neon-purple',
     features: ['Role-based Access', 'Event Scheduling', 'Registration System', 'Admin Dashboard']
   },
@@ -25,7 +28,7 @@ const projects = [
     subtitle: 'Course Marketplace',
     description: 'Full-featured learning platform with course buying/selling, payment integration, and progress tracking.',
     technologies: ['MERN Stack', 'RTK Query', 'Stripe', 'Payment Gateway'],
-    icon: GraduationCap,
+    icon: Code2,
     color: 'neon-green',
     features: ['Course Marketplace', 'Payment Integration', 'Progress Tracking', 'Interactive Learning']
   },
@@ -34,7 +37,7 @@ const projects = [
     subtitle: 'Internship Project',
     description: 'Official college website featuring faculty profiles, lab information, departments, and student resources.',
     technologies: ['React.js', 'Node.js', 'MongoDB', 'Responsive Design'],
-    icon: Globe,
+    icon: Database,
     color: 'neon-pink',
     features: ['Faculty Profiles', 'Department Info', 'Lab Details', 'Student Portal']
   },
@@ -75,64 +78,67 @@ const ProjectsSection = () => {
           </div>
 
           {/* Projects Grid */}
-          <div className="grid lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => {
               const Icon = project.icon;
               return (
-                <div key={index} className="glass-card rounded-2xl p-8 hover-card group">
-                  <div className="space-y-6">
-                    {/* Project Header */}
-                    <div className="flex items-start justify-between">
-                      <div className="flex items-center gap-4">
-                        <div className={`w-12 h-12 rounded-xl bg-${project.color}/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                          <Icon size={24} className={`text-${project.color}`} />
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-bold">{project.title}</h3>
-                          <p className={`text-sm text-${project.color} font-medium`}>{project.subtitle}</p>
-                        </div>
-                      </div>
-                      <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <Button size="sm" variant="outline" className="w-8 h-8 p-0">
-                          <Github size={16} />
-                        </Button>
-                        <Button size="sm" variant="outline" className="w-8 h-8 p-0">
-                          <ExternalLink size={16} />
-                        </Button>
-                      </div>
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-muted-foreground leading-relaxed">
-                      {project.description}
-                    </p>
-
-                    {/* Technologies */}
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="px-3 py-1 bg-secondary/50 text-xs font-medium rounded-full border border-border/50"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Features */}
-                    <div className="space-y-2">
-                      <h4 className="font-semibold text-sm">Key Features:</h4>
-                      <div className="grid grid-cols-2 gap-2">
-                        {project.features.map((feature, featureIndex) => (
-                          <div key={featureIndex} className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <div className={`w-1 h-1 rounded-full bg-${project.color}`}></div>
-                            {feature}
+                <AnimatedCard key={index} className="h-full">
+                  <div className="glass-card rounded-2xl p-6 h-full flex flex-col hover-card group">
+                    <div className="space-y-6 flex-1">
+                      {/* Project Header */}
+                      <div className="flex items-start justify-between">
+                        <div className="flex items-center gap-4">
+                          <div className={`w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                            <Icon size={24} className="text-primary" />
                           </div>
+                          <div>
+                            <h3 className="text-xl font-bold">{project.title}</h3>
+                            <p className="text-sm text-accent font-medium">{project.subtitle}</p>
+                          </div>
+                        </div>
+                        <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <Button size="sm" variant="outline" className="w-8 h-8 p-0 magnetic-hover">
+                            <Github size={16} />
+                          </Button>
+                          <Button size="sm" variant="outline" className="w-8 h-8 p-0 magnetic-hover">
+                            <ExternalLink size={16} />
+                          </Button>
+                        </div>
+                      </div>
+
+                      {/* Description */}
+                      <p className="text-muted-foreground leading-relaxed">
+                        {project.description}
+                      </p>
+
+                      {/* Technologies */}
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech, techIndex) => (
+                          <Badge
+                            key={techIndex}
+                            variant="secondary"
+                            className="bg-secondary/50 hover:bg-primary/20 transition-colors"
+                          >
+                            {tech}
+                          </Badge>
                         ))}
+                      </div>
+
+                      {/* Features */}
+                      <div className="space-y-2 mt-auto">
+                        <h4 className="font-semibold text-sm">Key Features:</h4>
+                        <div className="grid grid-cols-1 gap-2">
+                          {project.features.map((feature, featureIndex) => (
+                            <div key={featureIndex} className="flex items-center gap-2 text-sm text-muted-foreground">
+                              <div className="w-1 h-1 rounded-full bg-primary"></div>
+                              {feature}
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </AnimatedCard>
               );
             })}
           </div>

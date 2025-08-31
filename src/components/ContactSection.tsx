@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Mail, Github, Linkedin, Send, MapPin, Phone } from 'lucide-react';
+import { Mail, Github, Linkedin, Send, MapPin, Code } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -72,8 +72,8 @@ const ContactSection = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 p-4 glass-card rounded-xl hover-card">
-                  <div className="w-12 h-12 rounded-xl bg-neon-green/20 flex items-center justify-center">
+                <div className="flex items-center gap-4 p-4 glass-card rounded-xl hover-card group">
+                  <div className="w-12 h-12 rounded-xl bg-neon-green/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Linkedin size={20} className="text-neon-green" />
                   </div>
                   <div>
@@ -82,8 +82,18 @@ const ContactSection = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 p-4 glass-card rounded-xl hover-card">
-                  <div className="w-12 h-12 rounded-xl bg-neon-pink/20 flex items-center justify-center">
+                <div className="flex items-center gap-4 p-4 glass-card rounded-xl hover-card group">
+                  <div className="w-12 h-12 rounded-xl bg-yellow-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Code size={20} className="text-yellow-400" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold">LeetCode</h4>
+                    <p className="text-muted-foreground">@HarshDonda_23</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-4 p-4 glass-card rounded-xl hover-card group">
+                  <div className="w-12 h-12 rounded-xl bg-neon-pink/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                     <MapPin size={20} className="text-neon-pink" />
                   </div>
                   <div>
