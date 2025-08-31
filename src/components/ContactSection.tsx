@@ -27,7 +27,7 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="min-h-screen flex items-center py-20 pb-32 lg:pb-20">
-      <div className="container mx-auto px-4 md:px-6 md:ml-20">
+      <div className="container mx-auto px-4 md:px-6">
         <div className="space-y-8 md:space-y-12">
           {/* Section Header */}
           <div className="text-center space-y-4">

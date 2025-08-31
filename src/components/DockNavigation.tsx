@@ -12,6 +12,7 @@ const navItems = [
 
 const DockNavigation = () => {
   const [activeSection, setActiveSection] = useState('hero');
+  const [showNavbar, setShowNavbar] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,8 +28,18 @@ const DockNavigation = () => {
       }
     };
 
+    const handleMouseMove = (e: MouseEvent) => {
+      // Show navbar when cursor is in the left 100px of screen
+      setShowNavbar(e.clientX <= 100);
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('mousemove', handleMouseMove);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -40,8 +51,10 @@ const DockNavigation = () => {
 
   return (
     <>
-      {/* Desktop Navigation - Left Side */}
-      <nav className="fixed left-6 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block">
+      {/* Desktop Navigation - Left Side with Auto Hide */}
+      <nav className={`fixed left-6 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block transition-all duration-300 ${
+        showNavbar ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'
+      }`}>
         <div className="dock-nav rounded-2xl p-3 space-y-3">
           {navItems.map((item) => {
             const Icon = item.icon;
