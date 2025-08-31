@@ -12,12 +12,21 @@ const navItems = [
 
 const DockNavigation = () => {
   const [activeSection, setActiveSection] = useState('hero');
-  const [showNavbar, setShowNavbar] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true); // Start visible
+  const [isOnHeroSection, setIsOnHeroSection] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
       const sections = navItems.map(item => document.getElementById(item.id));
       const scrollPosition = window.scrollY + window.innerHeight / 2;
+      const heroSection = document.getElementById('hero');
+      
+      // Check if we're still on hero section
+      if (heroSection) {
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        const currentlyOnHero = window.scrollY < heroBottom - 200; // 200px buffer
+        setIsOnHeroSection(currentlyOnHero);
+      }
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
@@ -29,18 +38,21 @@ const DockNavigation = () => {
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-      // Show navbar when cursor is in the left 100px of screen
-      setShowNavbar(e.clientX <= 100);
+      // Show navbar when cursor is in the left 100px of screen OR when on hero section
+      setShowNavbar(isOnHeroSection || e.clientX <= 100);
     };
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('mousemove', handleMouseMove);
     
+    // Initial check
+    handleScroll();
+    
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, []);
+  }, [isOnHeroSection]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);

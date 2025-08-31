@@ -15,8 +15,8 @@ const InteractiveHero = () => {
   const { ref, inView } = useInView({ threshold: 0.1 });
 
   const roles = [
-    'MERN Stack Developer',
-    'AIML Enthusiast',
+    'Full Stack Developer',
+    'AI/ML Enthusiast',
     'Data Science Learner',
     'Problem Solver'
   ];
