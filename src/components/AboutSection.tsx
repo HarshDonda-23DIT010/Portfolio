@@ -1,13 +1,13 @@
 import { User, Brain, Code } from 'lucide-react';
 import ProfileCard from '@/blocks/Components/ProfileCard/ProfileCard';
 import profile from '../assets/profile.jpg'
-import profile1 from '../assets/profile1.png'
+import profile1 from '../assets/profile-1.png'
 
 const AboutSection = () => {
   return (
     <section id="about" className="min-h-screen flex items-center justify-center py-12 md:py-20 relative">
       <div className="container mx-auto px-4 md:px-8 max-w-7xl">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center justify-items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center justify-items-center ml-10">
           {/* Text Content */}
           <div className="space-y-6 md:space-y-10 max-w-3xl lg:justify-self-start">
             <div className="space-y-4 md:space-y-6 text-center lg:text-left">
@@ -57,14 +57,14 @@ const AboutSection = () => {
           </div>
 
           {/* Enhanced Profile Card Container */}
-          <div className="flex justify-center lg:justify-end w-full">
+          <div className="flex justify-center lg:justify-end mr-10 w-full">
             <div className="relative group">
               {/* Glowing background effect */}
               <div className="absolute -inset-4 bg-gradient-to-r from-sky-400/20 via-blue-400/20 to-cyan-400/20 rounded-3xl blur-xl opacity-75 group-hover:opacity-100 transition-opacity duration-500"></div>
-              
+
               <ProfileCard
                 // Avatar and Visual
-                avatarUrl={profile1}
+                avatarUrl={profile}
                 miniAvatarUrl={profile}
                 iconUrl="https://images.unsplash.com/photo-1614851099511-773084f6911d?w=200&h=200&fit=crop&auto=format"
                 grainUrl="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=400&fit=crop&auto=format"
@@ -72,16 +72,17 @@ const AboutSection = () => {
                 // Personal Information
                 name="Harsh Donda"
                 title="MERN Stack Developer | AIML Enthusiast"
+                titleColor="linear-gradient(to bottom, #38bdf8, #0ea5e9)"
                 handle="harshdonda"
                 status="Available for Projects"
                 contactText="Let's Connect"
 
-                // Styling and Effects
+                // // Styling and Effects
                 showBehindGradient={true}
                 behindGradient="radial-gradient(farthest-side circle at var(--pointer-x) var(--pointer-y), hsla(196,100%,60%,var(--card-opacity)) 4%, hsla(196,50%,80%,calc(var(--card-opacity)*0.75)) 10%, hsla(196,25%,70%,calc(var(--card-opacity)*0.5)) 50%, hsla(196,0%,60%,0) 100%), radial-gradient(35% 52% at 55% 20%, #00d4ff 0%, #073aff00 100%), radial-gradient(100% 100% at 50% 50%, #00c1ffff 1%, #073aff00 76%), conic-gradient(from 124deg at 50% 50%, #37d4ffff 0%, #00c6ffff 40%, #00c6ffff 60%, #37d4ffff 100%)"
                 innerGradient="linear-gradient(145deg, #1e3a8a44 0%, #0ea5e944 100%)"
 
-                // Interactive Features
+                // // Interactive Features
                 enableTilt={true}
                 enableMobileTilt={true}
                 mobileTiltSensitivity={3}

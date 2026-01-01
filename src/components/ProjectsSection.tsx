@@ -13,7 +13,17 @@ import vc1 from '../assets/Project img/vc1.jpg';
 import vc2 from '../assets/Project img/vc2.jpg';
 import vc3 from '../assets/Project img/vc3.jpg';
 import vc4 from '../assets/Project img/vc4.jpg';
-
+import e1 from '../assets/Project img/e-1.png';
+import e2 from '../assets/Project img/e-2.png';
+import e3 from '../assets/Project img/e-3.png';
+import e4 from '../assets/Project img/e-4.png';
+import e5 from '../assets/Project img/e-5.png';
+import e6 from '../assets/Project img/e-6.png';
+import e7 from '../assets/Project img/e-7.png';
+import lms1 from '../assets/Project img/lms1.png';
+import lms2 from '../assets/Project img/lms2.png';
+import lms3 from '../assets/Project img/lms3.png';  
+import lms4 from '../assets/Project img/lms4.png';  
 
 const projects = [
   {
@@ -42,9 +52,7 @@ const projects = [
     color: 'cyan-400',
     features: ['Course Marketplace', 'Payment Integration', 'Progress Tracking', 'Interactive Learning'],
     images: [
-      'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop'
+      lms1, lms2, lms3,lms4
     ],
     githubUrl: 'https://github.com/HarshDonda-23DIT010/LMS-Project',
   },
@@ -75,16 +83,14 @@ const projects = [
     status: 'in-progress', // Added status indicator
     features: ['Multi-role System', 'Exam Management', 'Result Processing', 'Security Features'],
     images: [
-      'https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop'
+      e1, e2, e3, e4, e5, e6, e7
     ],
     githubUrl: 'https://github.com/HarshDonda-23DIT010/Examination-portel',
   },
   {
     id: 5,
     title: 'Vaccicare',
-    subtitle: 'Oddo X Hackathon Winner',
+    subtitle: 'Oddo X MSU Hackathon Project',
     description: 'vaccination tracking app with intelligent baby care tips and health monitoring.',
     fullDescription: 'VacciCare is an innovative healthcare solution developed during the Oddo X MSU Hackathon by Team EUREKA. It addresses one of the most critical challenges faced by new parents and healthcare providers — tracking child vaccinations and ensuring timely immunization. With a rising number of missed or delayed vaccinations, VacciCare offers a smart, reliable, and user-friendly system that ensures children stay on track with their vaccination schedules while also providing intelligent baby care insights.',
     technologies: ['Flutter', 'Supabase', 'Full Stack Web'],

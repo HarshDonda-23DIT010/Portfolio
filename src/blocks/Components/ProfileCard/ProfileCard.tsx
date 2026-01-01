@@ -19,6 +19,7 @@ interface ProfileCardProps {
   miniAvatarUrl?: string;
   name?: string;
   title?: string;
+  titleColor?: string;
   handle?: string;
   status?: string;
   contactText?: string;
@@ -72,6 +73,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
   miniAvatarUrl,
   name = "Javi A. Torres",
   title = "Software Engineer",
+  titleColor = "linear-gradient(to bottom, #38bdf8, #0ea5e9)",
   handle = "javicodes",
   status = "Online",
   contactText = "Contact",
@@ -301,8 +303,9 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
           ? (behindGradient ?? DEFAULT_BEHIND_GRADIENT)
           : "none",
         "--inner-gradient": innerGradient ?? DEFAULT_INNER_GRADIENT,
+        "--title-color": titleColor,
       }) as React.CSSProperties,
-    [iconUrl, grainUrl, showBehindGradient, behindGradient, innerGradient]
+    [iconUrl, grainUrl, showBehindGradient, behindGradient, innerGradient, titleColor]
   );
 
   const handleContactClick = useCallback(() => {
@@ -365,7 +368,7 @@ const ProfileCardComponent: React.FC<ProfileCardProps> = ({
           <div className="pc-content">
             <div className="pc-details">
               <h3>{name}</h3>
-              <p>{title}</p>
+              <p style={{ backgroundImage: titleColor }}>{title}</p>
             </div>
           </div>
         </div>

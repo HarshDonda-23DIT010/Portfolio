@@ -15,8 +15,8 @@ const InteractiveHero = () => {
   const { ref, inView } = useInView({ threshold: 0.1 });
 
   const roles = [
-    'Full Stack Developer',
     'AI/ML Enthusiast',
+    'Full Stack Developer',
     'Data Science Learner',
     'Problem Solver'
   ];
@@ -142,32 +142,35 @@ const InteractiveHero = () => {
 
         {/* Main content */}
         <div className="space-y-8 relative z-10">
+
+          <div className="pt-6 text-center">
+            <p className="text-base md:text-lg lg:text-xl font-semibold 
+                  bg-gradient-to-r from-sky-300 to-cyan-300 
+                  bg-clip-text text-transparent tracking-wide">
+              कर्मण्येवाधिकारस्ते मा फलेषु कदाचन
+            </p>
+            <p className="text-xs md:text-sm text-sky-300/70 mt-1 italic">
+              — Bhagavad Gita
+            </p>
+          </div>
+
           {/* Animated name with light blue theme */}
           <animated.div style={nameAnimation} className="space-y-4">
-            
-
             <h1
-              className="text-4xl md:text-5xl lg:text-8xl font-bold relative group cursor-pointer"
+              className="text-2xl md:text-4xl lg:text-6xl font-bold relative group cursor-pointer text-sky-300"
               style={{
                 transform: `perspective(1000px) rotateX(${mousePosition.y * 0.02}deg) rotateY(${mousePosition.x * 0.02}deg)`
               }}
             >
-              <span
-                className="bg-gradient-to-r from-sky-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent 
-                           hover:from-sky-300 hover:via-blue-400 hover:to-cyan-300
-                           transition-all duration-500 drop-shadow-2xl group-hover:drop-shadow-[0_0_30px_rgb(56_189_248)]"
-                style={{
-                  textShadow: `0 0 ${10 + mousePosition.x * 0.1}px rgba(56, 189, 248, 0.5), 0 0 ${20 + mousePosition.y * 0.1}px rgba(34, 211, 238, 0.3)`
-                }}
-              >
-                Harsh Donda
-              </span>
+              Harsh Donda
             </h1>
           </animated.div>
 
+          
+
           {/* Dynamic role with light blue theme */}
-          <div className="h-16 md:h-20 flex items-center justify-center relative">
-            <p className="text-lg md:text-xl lg:text-3xl text-sky-100 relative z-10 font-medium">
+          <div className="h-16 md:h-10 flex items-center justify-center relative">
+            <p className="text-lg md:text-xl lg:text-1xl text-sky-100 relative z-10 font-medium">
               <span className="inline-flex items-center gap-2">
                 <Zap className="w-5 h-5 md:w-6 md:h-6 text-cyan-400 animate-pulse transition-colors duration-300 hover:text-cyan-300" />
                 <span className="bg-gradient-to-r from-sky-300 to-cyan-300 bg-clip-text text-transparent">
@@ -178,19 +181,20 @@ const InteractiveHero = () => {
             </p>
           </div>
 
-          <div className="pt-6 md:pt-8 max-w-2xl md:max-w-3xl mx-auto text-center space-y-3 md:space-y-4">
+          <div className="pt-4 md:pt-5 max-w-2xl md:max-w-3xl mx-auto text-center space-y-3 md:space-y-4">
             <p className="text-base md:text-lg lg:text-xl text-sky-100/90 leading-relaxed px-4">
               I'm <span className="text-sky-300 font-semibold">Harsh Donda</span>,
-              a full-stack developer and ML enthusiast passionate about creating
-              <span className="text-sky-300 font-semibold"> innovative solutions </span>
-              through web technologies and AI.
+              a <span className="text-sky-300 font-semibold">full-stack web developer</span> passionate about building
+              <span className="text-sky-300 font-semibold"> scalable and user-focused </span>
+              web applications.
             </p>
 
             <p className="text-sm md:text-base lg:text-lg text-sky-200/80 leading-relaxed px-4">
-              I specialize in the MERN stack, machine learning, and building apps
-              that solve real-world problems.
+              I work primarily with the MERN stack and enjoy crafting clean, efficient systems,
+              while exploring AI/ML to enhance modern web experiences.
             </p>
           </div>
+
 
 
           {/* Enhanced Interactive CTA Section */}
@@ -218,17 +222,6 @@ const InteractiveHero = () => {
                   boxShadow: `0 0 ${20 + mousePosition.x * 0.1}px rgba(56, 189, 248, 0.6), ${buttonAnimation.boxShadow}`
                 }}
               >
-                {/* Enhanced shimmer effect with light blue */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-sky-200/30 to-transparent 
-                               opacity-0 group-hover:opacity-100 group-hover:animate-shimmer transition-opacity duration-300"></div>
-
-                {/* Enhanced button background effect with light blue */}
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/80 via-sky-400/80 to-blue-400/80 opacity-0 
-                               group-hover:opacity-100 transition-all duration-500 rounded-2xl blur-sm"></div>
-
-                {/* Enhanced glow effect with light blue */}
-                <div className="absolute -inset-2 bg-gradient-to-r from-sky-400 to-cyan-400 opacity-0 
-                               group-hover:opacity-75 blur-xl transition-all duration-500 rounded-2xl"></div>
 
                 <span className="relative z-10 flex items-center gap-2 md:gap-4">
                   <div className="relative">
@@ -238,9 +231,7 @@ const InteractiveHero = () => {
                         filter: `drop-shadow(0 0 ${3 + mousePosition.x * 0.05}px rgba(255, 255, 255, 0.8))`
                       }}
                     />
-                    {/* Enhanced Icon glow with light blue */}
-                    <div className="absolute inset-0 w-5 h-5 md:w-6 md:h-6 opacity-0 group-hover:opacity-100 
-                                   bg-sky-300/60 blur-md rounded-full transition-opacity duration-300"></div>
+
                   </div>
 
                   <span
@@ -263,12 +254,6 @@ const InteractiveHero = () => {
                   </div>
                 </span>
 
-                {/* Enhanced Ripple effect with light blue */}
-                <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-sky-400/40 to-cyan-400/40 
-                                 scale-0 group-hover:scale-100 transition-transform duration-700 
-                                 rounded-full blur-xl"></div>
-                </div>
               </Button>
 
             </animated.div>
