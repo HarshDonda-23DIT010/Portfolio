@@ -80,7 +80,6 @@ const projects = [
     technologies: ['PERN Stack', 'Role Management', 'Real-time Updates'],
     icon: Award,
     color: 'emerald-400',
-    status: 'in-progress', // Added status indicator
     features: ['Multi-role System', 'Exam Management', 'Result Processing', 'Security Features'],
     images: [
       e1, e2, e3, e4, e5, e6, e7
@@ -167,12 +166,7 @@ const ProjectsSection = () => {
                         {project.images.length}
                       </div>
 
-                      {/* In Progress Badge */}
-                      {project.status === 'in-progress' && (
-                        <div className="absolute top-2 md:top-4 left-2 md:left-4 bg-orange-500/90 backdrop-blur-sm rounded-full px-2 py-1 text-xs text-white font-medium">
-                          🚧 In Development
-                        </div>
-                      )}
+                     
 
                       {/* View Images Button */}
                       <button
