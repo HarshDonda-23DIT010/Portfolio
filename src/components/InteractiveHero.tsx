@@ -121,7 +121,7 @@ const InteractiveHero = () => {
       {/* Subtle gradient overlay to ensure text readability */}
       {/* <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/40 z-5"></div> */}
 
-      <div ref={ref} className="container mx-auto px-4 md:px-6 text-center z-10 relative">
+      <div ref={ref} className="container mx-auto px-6 md:px-8 lg:px-12 text-center z-10 relative max-w-7xl">
 
         {/* Floating background shapes with light blue theme */}
         {backgroundShapes.map((style, i) => (

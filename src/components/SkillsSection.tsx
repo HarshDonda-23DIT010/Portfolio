@@ -30,7 +30,7 @@ const skillCategories = [
 const SkillsSection = () => {
   return (
     <section id="skills" className="min-h-screen flex items-center py-12 md:py-20">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="container mx-auto px-6 md:px-8 lg:px-12 max-w-7xl">
         <div className="space-y-8 md:space-y-12">
           {/* Section Header */}
           <div className="text-center space-y-4">
