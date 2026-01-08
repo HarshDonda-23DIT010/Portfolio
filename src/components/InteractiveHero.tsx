@@ -113,7 +113,7 @@ const InteractiveHero = () => {
             hueShift={0}
             colorFrequency={1}
             noise={0}
-            glow={0.4}
+            glow={0.1}
           />
         </div>
       </div>
@@ -147,7 +147,7 @@ const InteractiveHero = () => {
             <p className="text-base md:text-lg lg:text-xl font-semibold 
                   bg-gradient-to-r from-sky-300 to-cyan-300 
                   bg-clip-text text-transparent tracking-wide">
-              कर्मण्येवाधिकारस्ते मा फलेषु कदाचन
+              कर्मण्येवाधिकारस्ते मा फलेषु कदाचन|<br />मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि||
             </p>
             <p className="text-xs md:text-sm text-sky-300/70 mt-1 italic">
               — Bhagavad Gita

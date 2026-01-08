@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Mail, Github, Linkedin, Send, MapPin, Code } from 'lucide-react';
+import { Mail, Github, Linkedin, Send, MapPin, Code, CheckCircle, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import emailjs from '@emailjs/browser';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -11,11 +12,47 @@ const ContactSection = () => {
     email: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [statusMessage, setStatusMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const serviceId = 'service_3p4p06a'; 
+      const templateId = 'template_wjezegp'; 
+      const publicKey = 'oSBwmrhFkZGRR_z_j'; // Get this from Account > General
+
+      const templateParams = {
+        name: formData.name,        // Matches {{name}} in your template
+        email: formData.email,      // Matches {{email}} in your template
+        message: formData.message,  // Matches {{message}} in your template
+        title: 'Portfolio Contact', // Matches {{title}} in your template
+      };
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      setSubmitStatus('success');
+      setStatusMessage('Message sent successfully! I\'ll get back to you soon.');
+      setFormData({ name: '', email: '', message: '' });
+      
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
+    } catch (error) {
+      console.error('Email send error:', error);
+      setSubmitStatus('error');
+      setStatusMessage('Failed to send message. Please try emailing me directly at dondaharsh04@gmail.com');
+      
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -32,9 +69,9 @@ const ContactSection = () => {
           {/* Section Header */}
           <div className="text-center space-y-4">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-              Get In <span className="text-glow bg-gradient-neon bg-clip-text text-transparent">Touch</span>
+              Get In <span className="bg-gradient-to-r from-gray-300 to-gray-100 bg-clip-text text-transparent">Touch</span>
             </h2>
-            <div className="w-20 h-1 bg-gradient-neon rounded-full mx-auto"></div>
+            <div className="w-20 h-1 bg-gradient-to-r from-gray-400 to-gray-200 rounded-full mx-auto"></div>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
               Let's connect and explore opportunities to collaborate on innovative projects
             </p>
@@ -54,54 +91,46 @@ const ContactSection = () => {
               {/* Contact Methods */}
               <div className="space-y-4">
                 <div className="flex items-center gap-4 p-4 glass-card rounded-xl hover-card group cursor-pointer" onClick={() => window.open('mailto:dondaharsh04@gmail.com', '_blank')}>
-                  <div className="w-12 h-12 rounded-xl bg-neon-cyan/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Mail size={20} className="text-neon-cyan" />
+                  <div className="w-12 h-12 rounded-xl bg-gray-400/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Mail size={20} className="text-gray-400" />
                   </div>
                   <div>
-                    <h4 className="font-semibold">Email</h4>
-                    <p className="text-muted-foreground">Drop me a line for project discussions or collaborations</p>
+                    <h4 className="font-semibold text-sm md:text-base">Email</h4>
+                    <p className="text-muted-foreground text-xs md:text-sm">Drop me a line for project discussions or collaborations</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4 p-4 glass-card rounded-xl hover-card group cursor-pointer" onClick={() => window.open('https://github.com/HarshDonda-23DIT010', '_blank')}>
-                  <div className="w-12 h-12 rounded-xl bg-neon-purple/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Github size={20} className="text-neon-purple" />
+                  <div className="w-12 h-12 rounded-xl bg-gray-300/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Github size={20} className="text-gray-300" />
                   </div>
                   <div>
-                    <h4 className="font-semibold">GitHub</h4>
-                    <p className="text-muted-foreground">Explore my open-source projects and code repositories</p>
+                    <h4 className="font-semibold text-sm md:text-base">GitHub</h4>
+                    <p className="text-muted-foreground text-xs md:text-sm">Explore my open-source projects and code repositories</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4 p-4 glass-card rounded-xl hover-card group cursor-pointer" onClick={() => window.open('https://linkedin.com/in/harsh-donda-b6a9612a7', '_blank')}>
-                  <div className="w-12 h-12 rounded-xl bg-neon-green/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Linkedin size={20} className="text-neon-green" />
+                  <div className="w-12 h-12 rounded-xl bg-gray-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Linkedin size={20} className="text-gray-400" />
                   </div>
                   <div>
-                    <h4 className="font-semibold">LinkedIn</h4>
-                    <p className="text-muted-foreground">Connect professionally and view my career journey</p>
+                    <h4 className="font-semibold text-sm md:text-base">LinkedIn</h4>
+                    <p className="text-muted-foreground text-xs md:text-sm">Connect professionally and view my career journey</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-4 p-4 glass-card rounded-xl hover-card group cursor-pointer" onClick={() => window.open('https://leetcode.com/u/dondaharsh04/', '_blank')}>
-                  <div className="w-12 h-12 rounded-xl bg-yellow-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <Code size={20} className="text-yellow-400" />
+                  <div className="w-12 h-12 rounded-xl bg-gray-400/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <Code size={20} className="text-gray-300" />
                   </div>
                   <div>
-                    <h4 className="font-semibold">LeetCode</h4>
-                    <p className="text-muted-foreground">Check out my algorithmic problem-solving skills and progress</p>
+                    <h4 className="font-semibold text-sm md:text-base">LeetCode</h4>
+                    <p className="text-muted-foreground text-xs md:text-sm">Check out my algorithmic problem-solving skills and progress</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-4 p-4 glass-card rounded-xl hover-card group">
-                  <div className="w-12 h-12 rounded-xl bg-neon-pink/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <MapPin size={20} className="text-neon-pink" />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold">Location</h4>
-                    <p className="text-muted-foreground">Based in Gujarat, India - Open to remote opportunities</p>
-                  </div>
-                </div>
+                
               </div>
 
               {/* Social Links */}
@@ -175,8 +204,8 @@ const ContactSection = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="glass-card rounded-2xl p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="glass-card rounded-2xl p-6 md:p-8">
+              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium">
                     Your Name
@@ -188,8 +217,9 @@ const ContactSection = () => {
                     placeholder="Enter your name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="bg-secondary/50 border-border/50 focus:border-neon-cyan"
+                    className="bg-secondary/50 border-border/50 focus:border-gray-400"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
 
@@ -204,8 +234,9 @@ const ContactSection = () => {
                     placeholder="Enter your email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="bg-secondary/50 border-border/50 focus:border-neon-cyan"
+                    className="bg-secondary/50 border-border/50 focus:border-gray-400"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
 
@@ -219,17 +250,43 @@ const ContactSection = () => {
                     placeholder="Tell me about your project or idea..."
                     value={formData.message}
                     onChange={handleInputChange}
-                    className="bg-secondary/50 border-border/50 focus:border-neon-cyan min-h-[120px]"
+                    className="bg-secondary/50 border-border/50 focus:border-gray-400 min-h-[120px]"
                     required
+                    disabled={isSubmitting}
                   />
                 </div>
 
+                {/* Status Messages */}
+                {submitStatus === 'success' && (
+                  <div className="flex items-center gap-2 p-3 bg-green-500/10 border border-green-500/30 rounded-lg text-green-400 text-sm">
+                    <CheckCircle size={16} />
+                    <span>{statusMessage}</span>
+                  </div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <div className="flex items-center gap-2 p-3 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-sm">
+                    <AlertCircle size={16} />
+                    <span>{statusMessage}</span>
+                  </div>
+                )}
+
                 <Button
                   type="submit"
-                  className="w-full neon-glow bg-gradient-neon hover:shadow-glow text-primary-foreground"
+                  className="w-full bg-gradient-to-r from-gray-400 to-gray-500 hover:from-gray-300 hover:to-gray-400 text-gray-900 font-semibold shadow-lg hover:shadow-xl transition-all"
+                  disabled={isSubmitting}
                 >
-                  <Send size={16} className="mr-2" />
-                  Send Message
+                  {isSubmitting ? (
+                    <>
+                      <span className="animate-spin mr-2">⏳</span>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send size={16} className="mr-2" />
+                      Send Message
+                    </>
+                  )}
                 </Button>
               </form>
             </div>
