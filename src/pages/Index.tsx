@@ -4,9 +4,10 @@ import DockNavigation from '@/components/DockNavigation';
 import InteractiveHero from '@/components/InteractiveHero';
 import AboutSection from '@/components/AboutSection';
 import EducationSection from '@/components/EducationSection';
+import WorkExperienceSection from '@/components/WorkExperienceSection';
 import SkillsSection from '@/components/SkillsSection';
 import ProjectsSection from '@/components/ProjectsSection';
-
+import AchievementsSection from '@/components/AchievementsSection';
 import ContactSection from '@/components/ContactSection';
 
 const Index = () => {
@@ -31,9 +32,10 @@ const Index = () => {
           <InteractiveHero />
           <AboutSection />
           <EducationSection />
+          <WorkExperienceSection />
           <SkillsSection />
           <ProjectsSection />
-          
+          <AchievementsSection />
           <ContactSection />
         </main>
         
