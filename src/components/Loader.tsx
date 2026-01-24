@@ -15,12 +15,9 @@ const Loader = ({ onComplete }: { onComplete: () => void }) => {
   }, [onComplete]);
 
   return (
-    <div className={`fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-br from-background via-blue-950/20 to-cyan-950/20 transition-all duration-700 ${
+    <div className={`fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-all duration-700 ${
       loading ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
     }`}>
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_40%,rgba(56,189,248,0.1),transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_60%,rgba(34,211,238,0.1),transparent_50%)]" />
 
       <div className="relative text-center">
         {/* 3D Cube Loader */}

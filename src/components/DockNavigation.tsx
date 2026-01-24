@@ -65,42 +65,42 @@ const DockNavigation = () => {
 
   return (
     <>
-      {/* Desktop Navigation - Left Side with Auto Hide */}
-      <nav className={`fixed left-6 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block transition-all duration-300 ${
-        showNavbar ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full'
-      }`}>
-        <div className="dock-nav rounded-2xl p-3 space-y-3">
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = activeSection === item.id;
-            
-            return (
-              <div key={item.id} className="relative group">
-                <button
-                  onClick={() => scrollToSection(item.id)}
-                  className={`dock-item w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                    isActive 
-                      ? 'active text-primary-foreground' 
-                      : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
-                  }`}
-                >
-                  <Icon size={20} />
-                </button>
-                
-                {/* Tooltip */}
-                <div className="absolute left-16 top-1/2 transform -translate-y-1/2 bg-card border border-border rounded-lg px-3 py-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-                  {item.label}
-                  <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1 w-2 h-2 bg-card border-l border-b border-border rotate-45"></div>
+      {/* Desktop Navigation - Left Side with Glass Effect */}
+      <nav className="fixed left-6 top-1/2 transform -translate-y-1/2 z-40 hidden lg:block transition-all duration-300">
+        <div className="glass-nav rounded-2xl px-3 py-3 backdrop-blur-xl bg-gradient-to-br from-cyan-500/20 via-blue-500/15 to-sky-500/20 border border-cyan-400/30 shadow-2xl shadow-cyan-500/20">
+          <div className="flex flex-col items-center space-y-2">
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = activeSection === item.id;
+              
+              return (
+                <div key={item.id} className="relative group">
+                  <button
+                    onClick={() => scrollToSection(item.id)}
+                    className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+                      isActive 
+                        ? 'bg-cyan-400/40 text-white shadow-lg shadow-cyan-400/50 scale-110' 
+                        : 'text-white/70 hover:text-white hover:bg-cyan-400/20 hover:scale-105'
+                    }`}
+                  >
+                    <Icon size={18} />
+                  </button>
+                  
+                  {/* Tooltip */}
+                  <div className="absolute left-14 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-cyan-900/90 to-blue-900/90 backdrop-blur-md rounded-lg px-3 py-2 text-sm font-medium text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap border border-cyan-400/30">
+                    {item.label}
+                    <div className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1 w-2 h-2 bg-cyan-900/90 border-l border-b border-cyan-400/30 rotate-45"></div>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </nav>
 
-      {/* Mobile Navigation - Bottom */}
-      <nav className="fixed bottom-4 left-4 right-4 z-40 lg:hidden">
-        <div className="dock-nav rounded-2xl p-2 mx-auto max-w-md">
+      {/* Mobile Navigation - Bottom Center with Glass Effect */}
+      <nav className="fixed bottom-4 left-1/2 transform -translate-x-1/2 z-40 lg:hidden w-[95%] max-w-md">
+        <div className="glass-nav rounded-full px-4 py-2 backdrop-blur-xl bg-gradient-to-r from-cyan-500/20 via-blue-500/15 to-sky-500/20 border border-cyan-400/30 shadow-2xl shadow-cyan-500/20">
           <div className="flex justify-between items-center space-x-1">
             {navItems.map((item) => {
               const Icon = item.icon;
@@ -110,14 +110,14 @@ const DockNavigation = () => {
                 <div key={item.id} className="flex-1 relative group">
                   <button
                     onClick={() => scrollToSection(item.id)}
-                    className={`dock-item w-full h-12 rounded-xl flex flex-col items-center justify-center transition-all duration-300 ${
+                    className={`w-full h-14 rounded-full flex flex-col items-center justify-center transition-all duration-300 ${
                       isActive 
-                        ? 'active text-primary-foreground' 
-                        : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
+                        ? 'bg-cyan-400/40 text-white scale-105 shadow-lg shadow-cyan-400/50' 
+                        : 'text-white/70 hover:text-white hover:bg-cyan-400/20'
                     }`}
                   >
                     <Icon size={18} />
-                    <span className={`text-xs mt-1 transition-opacity duration-200 ${
+                    <span className={`text-[10px] mt-1 transition-opacity duration-200 ${
                       isActive ? 'opacity-100' : 'opacity-70'
                     }`}>
                       {item.label}

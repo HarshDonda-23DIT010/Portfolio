@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
-import { useSpring, animated, useTrail } from '@react-spring/web';
+import { useSpring, animated } from '@react-spring/web';
 import { useInView } from 'react-intersection-observer';
-import { Download, Code2, Sparkles, Terminal, Zap, ArrowDown } from 'lucide-react';
+import { Download, Sparkles, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import Prism from '@/blocks/Backgrounds/Prism/Prism';
 import resume from '@/assets/resume_harsh-donda.pdf';
 
 const InteractiveHero = () => {
@@ -74,82 +73,24 @@ const InteractiveHero = () => {
     config: { tension: 300, friction: 10 }
   });
 
-  const backgroundShapes = useTrail(6, {
-    opacity: inView ? 0.6 : 0,
-    transform: inView ? 'scale(1) rotate(0deg)' : 'scale(0) rotate(180deg)',
-    config: { tension: 280, friction: 60 },
-    delay: 200
-  });
-
-  // Floating particles
-  const particles = Array.from({ length: 30 }, (_, i) => (
-    <div
-      key={i}
-      className="absolute w-1 h-1 bg-primary/60 rounded-full animate-pulse"
-      style={{
-        left: `${Math.random() * 100}%`,
-        top: `${Math.random() * 100}%`,
-        animationDelay: `${Math.random() * 3}s`,
-        animationDuration: `${2 + Math.random() * 2}s`
-      }}
-    />
-  ));
-
   return (
     <section
       ref={heroRef}
       id="hero"
       className="min-h-screen flex items-center justify-center relative overflow-hidden perspective-1000"
     >
-      {/* Galaxy Background */}
-      <div className="absolute inset-0 z-0">
-        <div style={{ width: '100%', height: '100vh', position: 'relative' }}>
-          <Prism
-            animationType="rotate"
-            timeScale={0.4}
-            height={3}
-            baseWidth={window.innerWidth < 768 ? 3.5 : 5.5}
-            scale={window.innerWidth < 768 ? 2.5 : 4}
-            hueShift={0}
-            colorFrequency={1}
-            noise={0}
-            glow={0.1}
-          />
-        </div>
-      </div>
-
-      {/* Subtle gradient overlay to ensure text readability */}
-      {/* <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/40 z-5"></div> */}
-
       <div ref={ref} className="container mx-auto px-6 md:px-8 lg:px-12 text-center z-10 relative max-w-7xl">
-
-        {/* Floating background shapes with light blue theme */}
-        {backgroundShapes.map((style, i) => (
-          <animated.div
-            key={i}
-            style={{
-              ...style,
-              left: `${20 + (i * 15)}%`,
-              top: `${10 + (i * 12)}%`,
-              transform: `${style.transform} translate(${mousePosition.x * 0.02}px, ${mousePosition.y * 0.02}px)`,
-            }}
-            className={`absolute ${i % 3 === 0 ? 'w-16 h-16 md:w-32 md:h-32 bg-sky-400/20 hover:bg-sky-300/30' :
-              i % 3 === 1 ? 'w-12 h-12 md:w-24 md:h-24 bg-blue-400/15 hover:bg-blue-300/25' :
-                'w-8 h-8 md:w-16 md:h-16 bg-cyan-400/25 hover:bg-cyan-300/35'
-              } rounded-full blur-xl transition-all duration-500 cursor-pointer`}
-          />
-        ))}
 
         {/* Main content */}
         <div className="space-y-8 relative z-10">
 
           <div className="pt-6 text-center">
             <p className="text-base md:text-lg lg:text-xl font-semibold 
-                  bg-gradient-to-r from-sky-300 to-cyan-300 
+                  bg-gradient-to-r from-white to-cyan-200 
                   bg-clip-text text-transparent tracking-wide">
               कर्मण्येवाधिकारस्ते मा फलेषु कदाचन|<br />मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि||
             </p>
-            <p className="text-xs md:text-sm text-sky-300/70 mt-1 italic">
+            <p className="text-xs md:text-sm text-sky-300 mt-1 italic">
               — Bhagavad Gita
             </p>
           </div>
@@ -157,16 +98,19 @@ const InteractiveHero = () => {
           {/* Animated name with light blue theme */}
           <animated.div style={nameAnimation} className="space-y-4">
             <h1
-              className="text-2xl md:text-4xl lg:text-6xl font-bold relative group cursor-pointer text-sky-300"
+              className="text-2xl md:text-4xl lg:text-6xl font-bold relative group cursor-pointer
+             text-white
+             bg-clip-text text-transparent
+             drop-shadow-[0_8px_12px_rgba(0,0,0,0.25)]
+             transition-all duration-300 "
               style={{
                 transform: `perspective(1000px) rotateX(${mousePosition.y * 0.02}deg) rotateY(${mousePosition.x * 0.02}deg)`
               }}
             >
               Harsh Donda
             </h1>
-          </animated.div>
 
-          
+          </animated.div>
 
           {/* Dynamic role with light blue theme */}
           <div className="h-16 md:h-10 flex items-center justify-center relative">
@@ -182,30 +126,28 @@ const InteractiveHero = () => {
           </div>
 
           <div className="pt-4 md:pt-5 max-w-2xl md:max-w-3xl mx-auto text-center space-y-3 md:space-y-4">
-            <p className="text-base md:text-lg lg:text-xl text-sky-100/90 leading-relaxed px-4">
+            <p className="text-base md:text-lg lg:text-xl text-white leading-relaxed px-4">
               I'm <span className="text-sky-300 font-semibold">Harsh Donda</span>,
               a <span className="text-sky-300 font-semibold">full-stack web developer</span> passionate about building
               <span className="text-sky-300 font-semibold"> scalable and user-focused </span>
               web applications.
             </p>
 
-            <p className="text-sm md:text-base lg:text-lg text-sky-200/80 leading-relaxed px-4">
+            <p className="text-sm md:text-base lg:text-lg text-white leading-relaxed px-4">
               I work primarily with the MERN stack and enjoy crafting clean, efficient systems,
               while exploring AI/ML to enhance modern web experiences.
             </p>
           </div>
-
-
 
           {/* Enhanced Interactive CTA Section */}
           <div className="pt-8 md:pt-12 flex flex-col items-center space-y-6 md:space-y-8 pb-20 lg:pb-8">
             {/* Primary CTA Button with light blue theme */}
             <animated.div style={buttonAnimation} className="relative group">
               <Button
-                className="group relative overflow-hidden bg-gradient-to-r from-sky-500 via-blue-500 to-cyan-500 
+                className="group relative overflow-hidden backdrop-blur-xl bg-gradient-to-br from-cyan-500/30 via-blue-500/25 to-sky-500/30 
                           text-white font-bold px-8 md:px-16 py-4 md:py-8 text-lg md:text-xl rounded-xl md:rounded-2xl
-                          border-2 border-sky-400/30 hover:border-sky-300/60 transition-all duration-500 
-                          shadow-2xl hover:shadow-[0_20px_60px_rgba(56,189,248,0.4)]
+                          border-2 border-cyan-400/40 hover:border-cyan-400/60 hover:bg-cyan-400/35 transition-all duration-500 
+                          shadow-2xl shadow-cyan-500/30 hover:shadow-cyan-400/50
                           transform-gpu hover:scale-105 active:scale-95"
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
@@ -219,7 +161,7 @@ const InteractiveHero = () => {
                 }}
                 style={{
                   transform: `${buttonAnimation.transform} translateX(${mousePosition.x * 0.02}px) translateY(${mousePosition.y * 0.02}px)`,
-                  boxShadow: `0 0 ${20 + mousePosition.x * 0.1}px rgba(56, 189, 248, 0.6), ${buttonAnimation.boxShadow}`
+                  boxShadow: `0 0 ${20 + mousePosition.x * 0.1}px rgba(34, 211, 238, 0.4), ${buttonAnimation.boxShadow}`
                 }}
               >
 
@@ -231,7 +173,6 @@ const InteractiveHero = () => {
                         filter: `drop-shadow(0 0 ${3 + mousePosition.x * 0.05}px rgba(255, 255, 255, 0.8))`
                       }}
                     />
-
                   </div>
 
                   <span
@@ -261,26 +202,6 @@ const InteractiveHero = () => {
           </div>
 
         </div>
-
-        {/* Enhanced Interactive orbs with light blue theme */}
-        <div
-          className="absolute w-32 h-32 bg-gradient-to-r from-sky-400/30 to-cyan-400/30 rounded-full blur-xl transition-all duration-300"
-          style={{
-            left: `${mousePosition.x * 0.1}%`,
-            top: `${mousePosition.y * 0.1}%`,
-            transform: `scale(${1 + mousePosition.x * 0.002}) rotate(${mousePosition.x * 0.5}deg)`,
-            boxShadow: `0 0 ${20 + mousePosition.x * 0.1}px rgba(56, 189, 248, 0.4)`
-          }}
-        />
-        <div
-          className="absolute w-24 h-24 bg-gradient-to-r from-blue-400/25 to-sky-400/25 rounded-full blur-lg transition-all duration-300"
-          style={{
-            right: `${(100 - mousePosition.x) * 0.15}%`,
-            bottom: `${(100 - mousePosition.y) * 0.15}%`,
-            transform: `scale(${1 + mousePosition.y * 0.003}) rotate(${-mousePosition.y * 0.3}deg)`,
-            boxShadow: `0 0 ${15 + mousePosition.y * 0.08}px rgba(96, 165, 250, 0.3)`
-          }}
-        />
       </div>
     </section>
   );

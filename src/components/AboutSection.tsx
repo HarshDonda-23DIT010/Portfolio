@@ -12,7 +12,7 @@ const AboutSection = () => {
           <div className="space-y-6 md:space-y-10 w-full max-w-3xl">
             <div className="space-y-4 md:space-y-6 text-center lg:text-left">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                About <span className="bg-gradient-to-r from-gray-300 to-gray-100 bg-clip-text text-transparent">Me</span>
+                About <span className="text-glow bg-gradient-neon bg-clip-text text-transparent">Me</span>
               </h2>
               <div className="w-16 md:w-24 h-1 bg-gradient-to-r from-gray-400 to-gray-200 rounded-full mx-auto lg:mx-0"></div>
             </div>

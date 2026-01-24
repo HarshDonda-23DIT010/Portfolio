@@ -9,21 +9,32 @@ import SkillsSection from '@/components/SkillsSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import AchievementsSection from '@/components/AchievementsSection';
 import ContactSection from '@/components/ContactSection';
+import VideoBackground from '@/components/VideoBackground';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
   };
 
+  const handleVideoLoaded = () => {
+    setIsVideoLoaded(true);
+  };
+
+  const isContentReady = !isLoading && isVideoLoaded;
+
   return (
     <>
+      {/* Video Background */}
+      <VideoBackground onVideoLoaded={handleVideoLoaded} />
+      
       {/* Preloader */}
       <Loader onComplete={handleLoadingComplete} />
       
       {/* Main Content */}
-      <div className={`transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
+      <div className={`transition-opacity duration-500 ${isContentReady ? 'opacity-100' : 'opacity-0'}`}>
         {/* Dock Navigation */}
         <DockNavigation />
         
