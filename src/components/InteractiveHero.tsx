@@ -41,7 +41,7 @@ const InteractiveHero = () => {
   }, [roleIndex]);
 
   return (
-    <section ref={heroRef} className="relative min-h-screen flex items-center justify-center py-10 overflow-hidden bg-transparent">
+    <section id="hero" ref={heroRef} className="relative min-h-screen flex items-center justify-center py-10 overflow-hidden bg-transparent">
       <div className="relative z-10 max-w-7xl md:ml-16 px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
         {/* LEFT: TEXT CONTENT */}
