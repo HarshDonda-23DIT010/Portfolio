@@ -245,7 +245,7 @@
     background: rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid hsl(199 100% 65% / 0.3);
+    border: 2px solid hsl(199 100% 65% / 0.5);
     box-shadow: 
       0 8px 32px rgba(0, 0, 0, 0.5),
       0 0 10px rgba(34, 211, 238, 0.5),
@@ -264,7 +264,7 @@
   }
 
   .glass-card:hover {
-    border-color: hsl(199 100% 65% / 0.5);
+    border-color: hsl(199 100% 65% / 0.7);
     background: rgba(0, 0, 0, 0.15);
     box-shadow: 
       0 8px 32px rgba(0, 0, 0, 0.5),
