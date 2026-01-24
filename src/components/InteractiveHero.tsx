@@ -80,13 +80,15 @@ const InteractiveHero = () => {
           </p>
 
           <div className="flex flex-wrap justify-center lg:justify-start items-center gap-4 pt-4">
-            <Button className="group relative h-14 px-8 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-2xl transition-all overflow-hidden">
-              <span className="relative z-10 flex items-center gap-2">
-                <Download className="w-5 h-5 group-hover:animate-bounce" />
-                Resume.pdf
-              </span>
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-            </Button>
+            <a href={resume} download target="_blank" rel="noopener noreferrer">
+              <Button className="group relative h-14 px-8 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold rounded-2xl transition-all overflow-hidden">
+                <span className="relative z-10 flex items-center gap-2">
+                  <Download className="w-5 h-5 group-hover:animate-bounce" />
+                  Download Resume
+                </span>
+                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+              </Button>
+            </a>
 
             <div className="flex gap-3">
               {[
