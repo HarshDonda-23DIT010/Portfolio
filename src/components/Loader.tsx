@@ -15,9 +15,8 @@ const Loader = ({ onComplete }: { onComplete: () => void }) => {
   }, [onComplete]);
 
   return (
-    <div className={`fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-all duration-700 ${
-      loading ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
-    }`}>
+    <div className={`fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-all duration-700 ${loading ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
+      }`}>
 
       <div className="relative text-center">
         {/* 3D Cube Loader */}
@@ -27,73 +26,73 @@ const Loader = ({ onComplete }: { onComplete: () => void }) => {
             <div className="cube-face front">
               <div className="face-grid">
                 {Array.from({ length: 9 }).map((_, i) => (
-                  <div 
-                    key={i} 
+                  <div
+                    key={i}
                     className="grid-cell"
                     style={{ animationDelay: `${i * 0.1}s` }}
                   />
                 ))}
               </div>
             </div>
-            
+
             {/* Back Face */}
             <div className="cube-face back">
               <div className="face-grid">
                 {Array.from({ length: 9 }).map((_, i) => (
-                  <div 
-                    key={i} 
+                  <div
+                    key={i}
                     className="grid-cell"
                     style={{ animationDelay: `${i * 0.1 + 0.5}s` }}
                   />
                 ))}
               </div>
             </div>
-            
+
             {/* Right Face */}
             <div className="cube-face right">
               <div className="face-grid">
                 {Array.from({ length: 9 }).map((_, i) => (
-                  <div 
-                    key={i} 
+                  <div
+                    key={i}
                     className="grid-cell"
                     style={{ animationDelay: `${i * 0.1 + 1}s` }}
                   />
                 ))}
               </div>
             </div>
-            
+
             {/* Left Face */}
             <div className="cube-face left">
               <div className="face-grid">
                 {Array.from({ length: 9 }).map((_, i) => (
-                  <div 
-                    key={i} 
+                  <div
+                    key={i}
                     className="grid-cell"
                     style={{ animationDelay: `${i * 0.1 + 1.5}s` }}
                   />
                 ))}
               </div>
             </div>
-            
+
             {/* Top Face */}
             <div className="cube-face top">
               <div className="face-grid">
                 {Array.from({ length: 9 }).map((_, i) => (
-                  <div 
-                    key={i} 
+                  <div
+                    key={i}
                     className="grid-cell"
                     style={{ animationDelay: `${i * 0.1 + 2}s` }}
                   />
                 ))}
               </div>
             </div>
-            
+
             {/* Bottom Face */}
             <div className="cube-face bottom">
               <div className="face-grid">
                 {Array.from({ length: 9 }).map((_, i) => (
-                  <div 
-                    key={i} 
+                  <div
+                    key={i}
                     className="grid-cell"
                     style={{ animationDelay: `${i * 0.1 + 2.5}s` }}
                   />
@@ -105,16 +104,21 @@ const Loader = ({ onComplete }: { onComplete: () => void }) => {
 
         {/* Loading Content */}
         <div className="space-y-6">
-          <div className="flex items-center justify-center space-x-2">
+          <div className="flex flex-col items-center justify-center space-y-2 text-center">
             <span className="text-3xl font-bold bg-gradient-to-r from-sky-400 to-cyan-400 bg-clip-text text-transparent">
-              Harsh Donda Portfolio
+              Booting ideas into reality…
+            </span>
+
+            <span className="text-lg text-slate-300 tracking-wide">
+              Welcome to <span className="text-cyan-400 font-semibold">Harsh Donda</span>'s Portfolio
             </span>
           </div>
 
-          
+
+
         </div>
 
-        
+
       </div>
     </div>
   );
