@@ -145,11 +145,11 @@ const ProjectsSection = () => {
             {projects.map((project, index) => {
               const Icon = project.icon;
               return (
-                <div key={index} className="group cursor-pointer">
-                  <div 
-                    className="glass-card rounded-2xl overflow-hidden hover-card h-full transition-all duration-300 hover:scale-[1.02]"
-                    onClick={() => setSelectedProject(project)}
-                  >
+                <div 
+                  key={index} 
+                  className="group cursor-pointer glass-card rounded-2xl overflow-hidden h-full transition-all duration-300 hover:scale-[1.01] hover:-translate-y-1"
+                  onClick={() => setSelectedProject(project)}
+                >
                     {/* Project Image */}
                     <div className="relative h-40 md:h-48 overflow-hidden">
                       <img 
@@ -247,15 +247,14 @@ const ProjectsSection = () => {
                         )}
                       </div>
                     </div>
-                  </div>
                 </div>
               );
             })}
           </div>
 
           {/* Project Detail Dialog */}
-          <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-            <DialogContent className="max-w-4xl h-[85vh] p-0 glass-card border border-sky-400/20 overflow-hidden flex flex-col">
+          <Dialog open={!!selectedProject} onOpenChange={(open) => !open && setSelectedProject(null)} modal={true}>
+            <DialogContent className="max-w-4xl h-[85vh] p-0 glass-card border border-sky-400/20 overflow-hidden flex flex-col fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] z-50">
               {selectedProject && (
                 <>
                   {/* Sticky Header */}
